@@ -1,0 +1,36 @@
+cabal-version:      2.4
+name:               mcpayment-test
+version:            0.1.0.0
+license:            MIT
+author:             Ananda Umamil
+maintainer:         zweimach@zweimach.org
+extra-source-files:
+    LICENSE
+    README.md
+
+library
+    exposed-modules:  Solution
+    hs-source-dirs:   src
+    ghc-options:
+        -Wall -Wcompat -Wincomplete-record-updates
+        -Wincomplete-uni-patterns -Wredundant-constraints
+
+    build-depends:    base
+    default-language: Haskell2010
+
+test-suite mcpayment-test
+    type:             exitcode-stdio-1.0
+    main-is:          Main.hs
+    hs-source-dirs:   test
+    ghc-options:
+        -Wall -Wcompat -Wincomplete-record-updates
+        -Wincomplete-uni-patterns -Wredundant-constraints -threaded
+        -rtsopts -with-rtsopts=-N
+
+    build-depends:
+        , base
+        , mcpayment-test
+        , tasty
+        , tasty-hunit
+
+    default-language: Haskell2010
